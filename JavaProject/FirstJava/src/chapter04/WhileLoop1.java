@@ -12,7 +12,7 @@ public class WhileLoop1 {
 		
 		
 	
-		int num = 5; //초기식, 반복문의 조건에 사용하는 변수, 카운팅(1씩 증가)
+		int num = 1; //초기식, 반복문의 조건에 사용하는 변수, 카운팅(1씩 증가)
 		
 		while( num < 5 ) {
 			System.out.println("A : " + num);
