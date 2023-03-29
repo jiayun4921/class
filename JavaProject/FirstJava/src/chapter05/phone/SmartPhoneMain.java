@@ -27,6 +27,14 @@ public class SmartPhoneMain {
 		System.out.println(sp3.color);
 		System.out.println(sp3.size);
 		System.out.println(sp3.volume);
+		
+		Member member = new Member("king", "king@gmail", 20, "010-5555-6666" ,26);
+				
+				printinfo(member);
+	}
+	
+	static void printInfo(Member member); {
+		member.showData();
 	}
 
 }
