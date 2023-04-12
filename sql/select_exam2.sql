@@ -23,4 +23,7 @@ select orderid from orders where not orderdate between '14/07/04' and '14/07/07'
 select name, address from customer where name like '김%';
 
 --(7) 성이 ‘김’씨이고 이름이 ‘아’로 끝나는 고객의 이름과 주소
-select name, address from customer where name like '김_아';
+select name, address from customer where name like '김%아';
+
+
+
