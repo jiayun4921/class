@@ -116,6 +116,15 @@ select * from emp where deptno in (select distinct deptno from emp where sal>=30
 
 -- 대한민국에 거주하는 고객에게 
 -- 판매한 도서의 총 판매액을 구하시오
+
+select sum(o.saleprice) -- join을 사용
+from orders o, customer c
+where o.custid=c.custid
+and c.address like '%대한민국%'
+;
+
+
+
 select sum(saleprice)
 from orders
 where custid in (select custid from customer where address like '%대한민국%')
@@ -127,4 +136,49 @@ select custid from customer where address like '%대한민국%';
 select custid from customer where address not like '%대한민국%';
 
 
+-- 3번 고객이 주문한 도서의 최고 금액보다 더 비싼 도서를 구입한 주문의 주문번호와 금액을 보이시오. 
 
+select *
+from orders
+where saleprice > 10000
+;
+--3번 고객이 주문한 최고금액
+select max(saleprice) from orders where custid=3;
+
+-- all : 서브쿼리의 결과 데이터 모두와 비교해서 참일 때, 결과는 참이다.
+select *
+from orders
+where saleprice > all (select saleprice from orders where custid=3) 
+;
+-- saleprice >6000 and saleprice > 12000 and saleprice > 13000
+
+
+--다음은 부서번호가 30번인 사원들의 급여 중 가장 작은 값(950)보다 많은 급여를 받는 사원의 이름,
+--급여를 출력하는 예제를 작성해 봅시다. 
+select sal from emp where deptno=30;
+select min(sal) from emp where deptno=30;
+
+
+select ename, sal
+from emp
+where sal > any (select sal from emp where deptno=30)
+;
+
+                                                            
+--다음은 부서번호가 30번인 사원들의 급여 중 가장 작은 값(950)보다 많은 급여를 받는 사원의 이름,
+--급여를 출력하는 예제를 작성해 봅시다. 
+--sal > 2850 or sal > 1600 or sal >1250 or sal>1500 or sal>500
+
+
+
+
+-- exists, not exists
+-- 상관관계가 반드시 필요한 서브쿼리가 조건의 결과로 사요 : select의 결과가 존재하는지 여부에 
+
+--– EXISTS 연산자로 대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
+select sum(saleprice)
+from orders o
+where exists
+(select * from customer c where c.custid=o.custid and c.address like '%대한민국%')
+;
+select * from customer c where c.custid=5 and c.address like '%대한민국%'
