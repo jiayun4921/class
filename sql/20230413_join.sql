@@ -79,6 +79,7 @@ where e.sal between s.losal and hisal
 
 
 --self join : 자기 자신의 테이블을 조인하는 경우
+-- 조건값이 false값이면 결과가 나오지 않음.
 -- 각 사원의 이름과 각 사원의 매니저 이름을 출력
 select e.ename, m.ename
 from emp e, emp m -- 별칭을 따로 주어야 같은 테이블 안에서 비교가 가능함.
