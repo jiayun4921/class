@@ -151,7 +151,7 @@ create table emp03(
     deptno number(2)
 );
 desc emp03;
--- unoque : 컬럼 내부에 중보되는 데이터가 있으면 입력 실패, 수정 실패
+-- unique : 컬럼 내부에 중복되는 데이터가 있으면 입력 실패, 수정 실패
 insert into emp03 values (1111, 'KING', 'MANAGER', 10);
 insert into emp03 values (1112, 'SON', 'MANAGER', 20);
 
