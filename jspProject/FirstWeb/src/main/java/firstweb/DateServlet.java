@@ -18,7 +18,7 @@ public class DateServlet extends HttpServlet {
    
     public DateServlet() {
         super();
-        // TODO Auto-generated constructor stub
+       
     }
 
 	
