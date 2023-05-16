@@ -15,6 +15,8 @@
     <!-- /app/resources/scc/default.css -->
     <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
     <!-- /css/default.css -->
+<!--    /uploadfile/report/erd.PNG-->
+    <mvc:resources mapping="/uploadfile/**" location="/uploadfile"></mvc:resources>
 
     <!-- view 설정 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -23,6 +25,21 @@
     </bean>
     <!-- "/WEB-INF/views/member/loginForm.jsp" -->
     <!-- Controller에서 view 지정 => "member/loginForm" -->
+
+
+<!--   파일 업로드를 위해서는 multipartResolver를 반드시 등록해야함 !!-->
+<bean id="multipartResolver"
+      class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+>
+    <property name="defaultEncoding" value=""/>
+
+
+</bean>
+
+
+
+
+
 
     <!-- bean 자동 등록 설정 : @Controller, @Service, @Repasitory   -->
     <context:component-scan base-package="com.hi.app"></context:component-scan>
