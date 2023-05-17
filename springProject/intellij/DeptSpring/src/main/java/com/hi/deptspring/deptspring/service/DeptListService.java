@@ -1,6 +1,7 @@
 package com.hi.deptspring.deptspring.service;
 
 import com.hi.deptspring.deptspring.domain.DeptDTO;
+import com.hi.deptspring.deptspring.domain.DeptSearchOption;
 import com.hi.deptspring.deptspring.mapper.DeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,11 @@ public class DeptListService {
     }
 
 
+    // DeptSearchOption을 받고 검색 결과 반환
+    public List<DeptDTO> getSearchList(DeptSearchOption option){
+        return mapper.selectByOption(option);
 
 
-
+    }
 
 }
