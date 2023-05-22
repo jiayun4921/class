@@ -1,10 +1,10 @@
-package com.hi.borad;
-
+package com.hi.board;
 
 import com.hi.board.domain.BoardDTO;
 import com.hi.board.domain.RequestRegBoard;
 import com.hi.board.mapper.BoardMapper;
 import lombok.extern.log4j.Log4j2;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.Extensions;
@@ -29,16 +29,26 @@ public class ConnectionTest {
     private BoardMapper boardMapper;
 
 
+
+    @Test
+    public void selectByBnoTest(){
+
+        BoardDTO board = boardMapper.selectByBno(1);
+        log.info("1번 게시물 : "+ board);
+        board = boardMapper.selectByBno(6);
+        log.info("6번 게시물 : " + board);
+
+    }
+
+
     @Test
     public void deptListTest(){
-
 
         List<BoardDTO> list = boardMapper.selectAll();
 
         log.info(list);
 
     }
-
 
 
     @Test
@@ -50,10 +60,19 @@ public class ConnectionTest {
                 .writer("작성자")
                 .build();
 
-
         log.info(board);
 
         boardMapper.insertBoard(board);
+
+
+    }
+
+
+    @Test
+    public void mapperTest(){
+
+        Assertions.assertNotNull(boardMapper);
+
     }
 
 
@@ -66,9 +85,7 @@ public class ConnectionTest {
 
         conn.close();
 
-
     }
-
 
 
 }

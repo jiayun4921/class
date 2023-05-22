@@ -20,5 +20,5 @@ VALUES
 -- select : 로그인처리 -> uid, pw 비교해서 질의
 select * from member where uid='hot' and pw='1111';
 -- MemberDTO 데이터 저장
-select idx, uid, uname, uphoto from member where uid='cool' and pw='1111';
+select idx, uid, uname, uphoto member from member where uid='cool' and pw='1111';
 -- select idx, uid, uname, uphoto from member where uid=? and pw=?
