@@ -36,11 +36,7 @@
                 <textarea name="content" rows="4" cols="20">${board.content}</textarea>
             </td>
         </tr>
-        <tr>
-            <td>작성자</td>
-            <td>
-                <input type="text" name="writer" value="${board.writer}">
-            </td>
+
         </tr>
 
         <tr>
