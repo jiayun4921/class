@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+    let menu = {
+        productName : 'Americano',
+        price : 3000,
+        ctgy : 'Coffee',
+        makeCoffee : function() {
+            console.log(`${this['productName']} 는 원두 20g과 뜨거운 물 120ml를 섞어서 만듭니다.`)
+            
+        }
+    }
+
+    console.log(menu, typeof menu)
+    console.log('주문 메뉴', menu.productName)
+    console.log('주문 가격', menu['price'])
+
+    // 객체의 메소드 호출
+    menu.makeCoffee()
+
+    // 동적 속성 추가
+    // {} 필요한 속성들을 추가 => 객체이름.속성이름 = 데이터
+    menu.event = false
+
+    console.log(menu)
+
+    // if(menu.event){
+    //     alert('할인 이벤트 진행 중!!!!')
+    // } else {
+    //     alert('이벤트 대상 상품이 아닙니다.')
+    // }
+
+    // 동적으로 속성을 제거
+    delete menu.event
+    console.log('속성 제거', menu)
+
+
+     ////////////////////////////////////////////
+
+    // 기본형 데이터의 일시적 승급 => 잠시 객체로 변환
+
+    let num = 100;
+    console.log(num.toString())
+
+    let numObj = new Number(100)
+    console.log(numObj.toString(), typeof numObj)
+
+    // prototype을 이용한 공통 메소드 추가
+    // 불필요한 메소드 코드를 메모리에 저장하지 않기 위한 방법
+    // 필요한 메소드 코드 하나만 등록하고 활용
+    // 객체 타입.prototype.속성이름 = function(){}
+
+
+    Number.prototype.nickname = 'KING'
+    Number.prototype.tell = function(){console.log('안녕하세요!!')}
+
+    let num2 = 10;
+    console.log(num2.nickname)
+    num2.tell()
+
+
+    </script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>
